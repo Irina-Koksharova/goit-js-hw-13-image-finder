@@ -77,7 +77,7 @@ ul {
 .gallery-item-stats-item {
   display: flex;
   align-items: center;
-  color: rgb(109, 104, 95);
+  color: rgb(70, 66, 60);
 }
 
 .gallery-item-stats-item:not(:last-child) {

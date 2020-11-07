@@ -1,11 +1,11 @@
 import '../node_modules/modern-normalize/modern-normalize.css';
 import './css/styles.css';
-import markupTemplate from './template.hbs';
+import { renderMarkup } from './js/markup.js';
 
 const refs = {
     searchForm: document.querySelector('#search-form'),
-    buttonLoad: document.querySelector('[data-action="load-more"]'),
     imageGallery: document.querySelector('.gallery'),
+    buttonLoad: document.querySelector('[data-action="load-more"]'),
 }
 
 refs.searchForm.addEventListener('submit', onSearchFormSubmit);
@@ -19,10 +19,9 @@ function onSearchFormSubmit(e) {
     .then(renderMarkup)
 }
 
-function renderMarkup(images) {
-    const markup = markupTemplate(images);
-       refs.imageGallery.insertAdjacentHTML('afterbegin', markup);
-}
+export { refs };
+
+
 
 
 
