@@ -4,10 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>My homework</title>
   </head>
 
   <body>
+
+    <div class="container">
+
+      <form class="search-form" id="search-form">
+        <input class="search-form-input" type="text" name="query" autocomplete="off" placeholder="Search images..." />
+      </form>
+      
+      <ul class="gallery"></ul>
+      
+      <button class="button-load" type="button" data-action="load-more">
+        <span class="button-load-spiner" role="status" aria-hidden="true"></span>
+        <span class="button-load-text">Load more</span>
+      </button>
+
+    </div>
    
+   
+
   </body>
 </html>
