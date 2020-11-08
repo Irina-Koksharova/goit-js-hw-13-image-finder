@@ -7,7 +7,7 @@
     <title>My homework</title>
   </head>
 
-  <body>
+  <body id="bootstrap-overrides">
 
     <div class="container">
 
@@ -18,11 +18,15 @@
       <ul class="gallery"></ul>
       
       <button class="button-load" type="button" data-action="load-more">
-        <span class="button-load-spiner" role="status" aria-hidden="true"></span>
-        <span class="button-load-text">Load more</span>
-      </button>
+       
+        <!-- Спиннер bootstrap -->
+        <div class="spinner-border spinner-custom-style is-hidden" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
 
-    </div>
+        <span class="button-load-text">Load more</span>
+
+        </div>
    
      </body>
 </html>

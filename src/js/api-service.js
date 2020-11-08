@@ -1,16 +1,23 @@
+const PUBLIC_URL = 'https://pixabay.com/api/';
+const KEY = '19018418-5cf416ff9d3b144c810bafa25';
+
 class ImageApiService {
     constructor() {
         this.searchQuery = '';
         this.page = 1;
     }
     fetchImages() {
-        const PUBLIC_API = 'https://pixabay.com/api/';
-        const KEY = '19018418-5cf416ff9d3b144c810bafa25';
-        return fetch(`${PUBLIC_API}?image_type=photo&orientation=horizontal&q=${this.searchQuery}&page=${this.page}&per_page=12&key=${KEY}`)
+        return fetch(`${PUBLIC_URL}?image_type=photo&orientation=horizontal&q=${this.searchQuery}&page=${this.page}&per_page=12&key=${KEY}`)
+            .then(response => {
+                if (response.status !== 200) {
+                    return Promise.reject(new Error(response.statusText))
+                };
+                return Promise.resolve(response)
+            })
             .then(response => response.json())
-            .then(data => {
+            .then(({hits}) => {
                 this.incrementPage();
-                return data.hits;
+                return hits;
     })
     }
     incrementPage() {
@@ -18,12 +25,6 @@ class ImageApiService {
     }
     resetPage() {
         this.page = 1;
-    }
-    get() {
-        return this.searchQuery;
-    }
-    set(newSearchQuery) {
-        this.searchQuery = newSearchQuery;
     }
 }
 

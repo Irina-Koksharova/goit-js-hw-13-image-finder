@@ -3,10 +3,10 @@ import markupCard from '../templates/markup-card.hbs';
 import 'material-design-icons/iconfont/material-icons.css';
 import { openModal } from './modal.js';
 
-function renderMarkup(hits) {
-    refs.imageGallery.insertAdjacentHTML('beforeend', markupCard(hits));
+function renderMarkup(images) {
+    refs.imageGallery.insertAdjacentHTML('beforeend', markupCard(images));
     refs.imageGallery.addEventListener('click', openModal);
-    scrollImages(hits[0].id);
+    scrollImages(images[0].id);
 }
 
 function scrollImages(id) {
@@ -17,4 +17,8 @@ function scrollImages(id) {
     })
 }
 
-export { renderMarkup };
+function clearMarkup() {
+    refs.imageGallery.innerHTML = '';
+}
+
+export { renderMarkup, clearMarkup };

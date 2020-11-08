@@ -1,4 +1,4 @@
-body {
+#bootstrap-overrides {
   background-color: rgb(193, 198, 202);
 }
 
@@ -88,15 +88,19 @@ ul {
   margin-right: 5px;
 }
 
-/* Кнопка загурзки изображений */
+/* Кнопка загрузки изображений */
 
 .button-load {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   min-width: 200px;
   height: 50px;
+  margin: 0 auto;
   padding: 5px;
   background-color: royalblue;
   border: 2px solid rgb(109, 104, 95);
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
 }
 
@@ -110,4 +114,14 @@ ul {
 .button-load-text {
   font-size: 20px;
   color: rgb(211, 205, 193);
+}
+
+.spinner-custom-style {
+  color: rgb(211, 205, 193);
+  margin-right: 8px;
+}
+
+.spinner-border.is-hidden,
+.button-load.is-hidden {
+  display: none;
 }
