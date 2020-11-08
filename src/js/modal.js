@@ -1,7 +1,7 @@
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 
-function onImageClick(e) {
+function openModal(e) {
     e.preventDefault();
     if (!e.target.classList.contains('gallery-image')) {
     return;
@@ -10,4 +10,4 @@ function onImageClick(e) {
     modal.show();
 }
 
-export { onImageClick };
+export { openModal };

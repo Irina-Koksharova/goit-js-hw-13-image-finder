@@ -1,11 +1,20 @@
 import { refs } from '../index.js';
 import markupCard from '../templates/markup-card.hbs';
-import { onImageClick } from './modal.js';
+import 'material-design-icons/iconfont/material-icons.css';
+import { openModal } from './modal.js';
 
-function renderMarkup(images) {
-    const markup = markupCard(images);
-    refs.imageGallery.insertAdjacentHTML('afterbegin', markup);
-    refs.imageGallery.addEventListener('click', onImageClick);
+function renderMarkup(hits) {
+    refs.imageGallery.insertAdjacentHTML('beforeend', markupCard(hits));
+    refs.imageGallery.addEventListener('click', openModal);
+    scrollImages(hits[0].id);
+}
+
+function scrollImages(id) {
+    const positionY = document.getElementById(`${id}`).offsetTop;
+    window.scrollTo({
+        top: positionY,
+        behavior: 'smooth',
+    })
 }
 
 export { renderMarkup };
