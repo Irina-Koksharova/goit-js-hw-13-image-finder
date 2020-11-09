@@ -9,6 +9,7 @@ module.exports = env => ({
   entry: './index.js',
   output: {
     path: paths.BUILD_DIR,
+    publicPath: "/goit-js-hw-13-image-finder/",
   },
   module: {
     rules: [
