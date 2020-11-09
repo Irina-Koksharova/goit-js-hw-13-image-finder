@@ -8,11 +8,23 @@ ul {
   list-style-type: none;
 }
 
+.title {
+  margin-bottom: 20px;
+}
+
 .container {
   width: 1280px;
   margin: 0 auto;
   padding: 40px;
   text-align: center;
+}
+
+.text {
+  margin: 20px 0px 0px;
+  font-size: 20px;
+  font-weight: 600;
+  font-style: italic;
+  color: rgb(44, 73, 160);
 }
 
 /* Форма поиска */

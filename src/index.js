@@ -2,9 +2,9 @@ import '../node_modules/modern-normalize/modern-normalize.css';
 import './css/styles.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ImageApiService } from './js/api-service.js';
-import { renderMarkup, clearMarkup } from './js/markup.js';
+import { clearMarkup, loadImages } from './js/markup.js';
 import { BtnLoadMore } from './js/load-more-btn.js';
-import { clientError, apiError } from './js/notification.js';
+import { clientError } from './js/notification.js';
 
 const refs = {
     searchForm: document.querySelector('#search-form'),
@@ -34,18 +34,7 @@ function searchForm(e) {
 }
 }
 
-function loadImages() {
-    btnLoadMore.disable();
-    imageApiService.fetchImages().then(images => {
-        renderMarkup(images),
-        btnLoadMore.enable()    
-    }).catch(error => {
-        btnLoadMore.hide();
-        apiError();
-    });
-}
-
-export { refs };
+export { refs, imageApiService, btnLoadMore };
 
 
 
