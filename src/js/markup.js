@@ -1,6 +1,6 @@
-import { refs } from '../index.js';
-import markupCard from '../templates/markup-card.hbs';
 import 'material-design-icons/iconfont/material-icons.css';
+import markupCard from '../templates/markup-card.hbs';
+import { refs } from '../index.js';
 import { openModal } from './modal.js';
 import { btnLoadMore } from '../index.js';
 import { apiError } from './notification.js';
@@ -20,15 +20,19 @@ function scrollImages(id) {
     })
 }
 
-function loadImages() {
-    btnLoadMore.disable();
-    imageApiService.fetchImages().then(images => {
-        renderMarkup(images),
-        btnLoadMore.enable()    
-    }).catch(error => {
+async function loadImages() {
+    try {
+        btnLoadMore.disable();
+        const response = await imageApiService.fetchImages();
+        const markup = (images) => {
+            renderMarkup(images),
+            btnLoadMore.enable()  
+        }
+        return markup(response);
+    } catch {
         btnLoadMore.hide();
         apiError();
-    });
+    }
 }
 
 function clearMarkup() {

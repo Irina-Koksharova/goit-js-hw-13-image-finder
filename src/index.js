@@ -35,6 +35,9 @@ function searchForm(e) {
 }
 
 export { refs, imageApiService, btnLoadMore };
+    
+
+
 
 
 
